@@ -17,3 +17,5 @@ let TGBOT: TGBotConnection = .init()
 defer { app.shutdown() }
 try await configure(app)
 try app.run()
+
+
