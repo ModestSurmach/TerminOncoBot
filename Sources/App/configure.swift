@@ -5,7 +5,13 @@ import TelegramVaporBot
 public func configure(_ app: Application) async throws {
     
     app.http.server.configuration.hostname = "0.0.0.0"
-    app.http.server.configuration.port = 80
+    app.http.server.configuration.port = 8080
+    
+    
+
+    
+    
+    
     
     
     let tgApi: String = "5829453178:AAEmZCBiQhviUJ8MWVfGRlyPbdOLqOjqDcA"
