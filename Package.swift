@@ -9,12 +9,14 @@ let package = Package(
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.89.0"),
+        .package(url: "https://github.com/nerzh/telegram-vapor-bot", .upToNextMajor(from: "2.1.0")),
     ],
     targets: [
         .executableTarget(
             name: "App",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
+                .product(name: "TelegramVaporBot", package: "telegram-vapor-bot"),
             ]
         ),
         .testTarget(name: "AppTests", dependencies: [
@@ -23,6 +25,7 @@ let package = Package(
 
             // Workaround for https://github.com/apple/swift-package-manager/issues/6940
             .product(name: "Vapor", package: "vapor"),
+            .product(name: "TelegramVaporBot", package: "telegram-vapor-bot"),
         ])
     ]
 )
