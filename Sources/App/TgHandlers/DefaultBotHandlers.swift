@@ -11,8 +11,8 @@ import TelegramVaporBot
 final class DefaultBotHandlers {
 
     static func addHandlers(app: Vapor.Application, connection: TGConnectionPrtcl) async {
-        await defaultBaseHandler(app: app, connection: connection)
-        await messageHandler(app: app, connection: connection)
+//        await defaultBaseHandler(app: app, connection: connection)
+//        await messageHandler(app: app, connection: connection)
         await commandPingHandler(app: app, connection: connection)
         await commandShowButtonsHandler(app: app, connection: connection)
         await buttonsActionHandler(app: app, connection: connection)
