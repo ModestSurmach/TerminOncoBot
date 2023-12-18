@@ -19,21 +19,21 @@ final class DefaultBotHandlers {
     }
     
     /// Handler for all updates
-    private static func defaultBaseHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
-        await connection.dispatcher.add(TGBaseHandler({ update, bot in
-            guard let message = update.message else { return }
-            let params: TGSendMessageParams = .init(chatId: .chat(message.chat.id), text: "TGBaseHandler")
-            try await connection.bot.sendMessage(params: params)
-        }))
-    }
+//    private static func defaultBaseHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
+//        await connection.dispatcher.add(TGBaseHandler({ update, bot in
+//            guard let message = update.message else { return }
+//            let params: TGSendMessageParams = .init(chatId: .chat(message.chat.id), text: "TGBaseHandler")
+//            try await connection.bot.sendMessage(params: params)
+//        }))
+//    }
 
     /// Handler for Messages
-    private static func messageHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
-        await connection.dispatcher.add(TGMessageHandler(filters: (.all && !.command.names(["/ping", "/show_buttons"]))) { update, bot in
-            let params: TGSendMessageParams = .init(chatId: .chat(update.message!.chat.id), text: "Success")
-            try await connection.bot.sendMessage(params: params)
-        })
-    }
+//    private static func messageHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
+//        await connection.dispatcher.add(TGMessageHandler(filters: (.all && !.command.names(["/ping", "/show_buttons"]))) { update, bot in
+//            let params: TGSendMessageParams = .init(chatId: .chat(update.message!.chat.id), text: "Success")
+//            try await connection.bot.sendMessage(params: params)
+//        })
+//    }
 
     /// Handler for Commands
     private static func commandPingHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
