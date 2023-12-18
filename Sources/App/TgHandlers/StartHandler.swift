@@ -19,12 +19,18 @@ final class StartHandler {
     
     
     
+//    private static func startHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
+//        await connection.dispatcher.add(TGMessageHandler(filters: (.all)) { update, bot in
+//            let params: TGSendMessageParams = .init(chatId: .chat(update.message!.chat.id), text: "Ok")
+//            try await connection.bot.sendMessage(params: params)
+//        })
+//    }
+    
+    
     private static func startHandler(app: Vapor.Application, connection: TGConnectionPrtcl) async {
-        await connection.dispatcher.add(TGMessageHandler(filters: (.all)) { update, bot in
-            let params: TGSendMessageParams = .init(chatId: .chat(update.message!.chat.id), text: "Ok")
-            try await connection.bot.sendMessage(params: params)
+        await connection.dispatcher.add(TGCommandHandler(commands: ["/start"]) { update, bot in
+            try await update.message?.reply(text: "Hi", bot: bot)
         })
     }
-    
     
 }

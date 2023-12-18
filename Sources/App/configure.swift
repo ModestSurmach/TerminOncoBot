@@ -22,7 +22,7 @@ public func configure(_ app: Application) async throws {
     
     await DefaultBotHandlers.addHandlers(app: app, connection: TGBOT.connection)
     await StartHandler.addHandlers(app: app, connection: TGBOT.connection)
-    
+    await MainMenuHandler.addHandlers(app: app, bot: TGBOT.connection)
     
     try await TGBOT.connection.start()
 
